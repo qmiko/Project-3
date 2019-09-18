@@ -15,7 +15,7 @@ class Nav extends Component{
 class App extends Component {
 
   state = {
-    currentPage:"sell"
+    currentPage:"shop"
   }
 
   getPageContents = () => {

@@ -1,8 +1,6 @@
 import React from "react";
-
-function Shop(){
-    return (
-        <div>
+function Menu(){
+   return <div>
             <ul>
                 <li> all </li>
                 <li> feminine </li>
@@ -14,7 +12,35 @@ function Shop(){
                 <li> kicks </li>
             </ul>
         </div>
-    )
+}
+function Clothes(){
+    return <div>
+            <ClothingItem/>
+            <ClothingItem/>
+            <ClothingItem/>
+            <ClothingItem/>
+            <ClothingItem/>
+
+         </div>
+ }
+
+ function ClothingItem(){
+     return <div className="clothing-item">Something</div>
+ }
+class Shop extends Component{
+
+    state={menuOpen:true}
+
+    render(){
+        return (
+            <div>
+            {this.state.menuOpen ? <Menu/> : ""}
+            <Clothes/>
+            </div>
+           
+        )
+    }
+    
 }
 
 export default Shop;
