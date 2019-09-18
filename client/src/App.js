@@ -7,7 +7,11 @@ import "./App.css";
 class Nav extends Component{
   render(){
     return (
-      <div><button onClick={this.props.showShop}>Shop</button></div>
+      <div className="nav">
+        <div className="header">eleven</div>
+        <div className="nav-child" onClick={this.props.showShop}>shop</div>
+        <div className="nav-child" onClick={this.props.showSell}>sell</div>
+      </div>
     )
   }
 }
@@ -30,11 +34,14 @@ class App extends Component {
   showShopPage = () => {
     this.setState({currentPage:'shop'});
   }
+  showSellPage = () =>{
+    this.setState({currentPage: 'sell'})
+  }
 
   render() {
     return (
       <div className="App">
-       <Nav showSell={} showShop={this.showShopPage}/>
+       <Nav showSell={this.showSellPage} showShop={this.showShopPage}/>
        {this.getPageContents()}
       </div>
     );
