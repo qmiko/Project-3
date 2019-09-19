@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Shop from "./components/Shop.js";
 import Sell from "./components/Sell.js";
+import Search from "./components/Search.js"
 import "./App.css";
 
 
