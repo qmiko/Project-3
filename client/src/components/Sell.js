@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "./api/api.js";
 
 
 
@@ -8,7 +9,7 @@ class Sell extends Component {
     state = {
         title: "",
         description: "",
-        price: ""
+        price: 0
     };
 
     handleInput = event => {
@@ -21,7 +22,11 @@ class Sell extends Component {
 
     submitForm = event => {
         alert(this.state.description + "Submitted")
-        //API.saveItem(this.state)
+        API.saveItem({
+            title:this.state.title || "none",
+            description:this.state.description || "none",
+            price:parseFloat(this.state.price) || 999.99
+        })
     };
 
     render() {
