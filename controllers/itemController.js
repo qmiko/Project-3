@@ -10,6 +10,6 @@ module.exports = {
                 console.log(item);
                 res.redirect('/');
             }
-        );
+        ).catch(err => res.status(422).json(err));
     }
 };

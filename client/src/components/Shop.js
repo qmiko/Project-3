@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "./api/api"
 function Menu() {
     return <div>
         <ul className="clothing-menu">
@@ -13,19 +14,42 @@ function Menu() {
         </ul>
     </div>
 }
-function Clothes() {
-    return <div className="clothing-item">
-        <ClothingItem />
-        <ClothingItem />
-        <ClothingItem />
-        <ClothingItem />
-        <ClothingItem />
 
-    </div>
+//make shit show up
+class Clothes extends React.Component {
+    state = {
+        items:[]
+    }
+    componentDidMount(){
+        // this.getItems();
+    }
+    getItems = () => {
+        API.getItems().then(res =>
+            this.setState({
+                items: res.data.item
+            })
+        )
+
+    }
+
+    render() {
+        return <div className="clothing-item">
+            <button onClick={this.getItems}>RUN LOAD</button>
+            {this.state.items.length ?
+                this.state.items.map(item => (
+                    <ClothingItem
+                        title={item.title}
+                    />
+                )) : ""}
+
+
+        </div>
+    }
+
 }
 
-function ClothingItem() {
-    return <div className="clothing-item">Something</div>
+function ClothingItem(props) {
+    return <div className="clothing-item">{props.title}</div>
 }
 class Shop extends Component {
 
