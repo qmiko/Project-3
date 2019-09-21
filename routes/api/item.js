@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const db = require('../../models');
 const itemController = require('../../controllers/itemController');
-
+//add filter
 router.route("/")
     .get((req, res) => {
         console.log('/api/item was hit')

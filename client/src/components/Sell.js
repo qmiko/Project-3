@@ -9,7 +9,7 @@ class Sell extends Component {
     state = {
         title: "",
         description: "",
-        price: 0
+        price: null
     };
 
     handleInput = event => {

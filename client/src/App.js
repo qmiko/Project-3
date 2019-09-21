@@ -12,6 +12,7 @@ class Nav extends Component{
         <div className="header">eleven</div>
         <div className="nav-child" onClick={this.props.showShop}>shop</div>
         <div className="nav-child" onClick={this.props.showSell}>sell</div>
+        <div className="nav-child" onClick={this.props.showSearch}>search</div>
       </div>
     )
   }
@@ -29,6 +30,8 @@ class App extends Component {
         return  <Shop/>
       case 'sell':
         return  <Sell/>
+      case 'search':
+        return <Search/>
     }
   }
 
@@ -38,11 +41,14 @@ class App extends Component {
   showSellPage = () =>{
     this.setState({currentPage: 'sell'})
   }
+  showSearchPage = () =>{
+    this.setState({currentPage: 'search'})
+  }
 
   render() {
     return (
       <div className="App">
-       <Nav showSell={this.showSellPage} showShop={this.showShopPage}/>
+       <Nav showSell={this.showSellPage} showShop={this.showShopPage} showSearch={this.showSearchPage}/>
        {this.getPageContents()}
       </div>
     );

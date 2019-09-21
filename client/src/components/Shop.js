@@ -21,7 +21,7 @@ class Clothes extends React.Component {
         items:[]
     }
     componentDidMount(){
-        // this.getItems();
+        this.getItems();
     }
     getItems = () => {
         API.getItems().then(res =>
@@ -34,7 +34,6 @@ class Clothes extends React.Component {
 
     render() {
         return <div className="clothing-item">
-            <button className="clothing-item-btn" onClick={this.getItems}>shop new items</button>
             {this.state.items.length ?
                 this.state.items.map(item => (
                     <ClothingItem
