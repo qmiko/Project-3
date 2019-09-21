@@ -39,7 +39,7 @@ class Sell extends Component {
                     name="title"
                     onChange={this.handleInput}
                     type="text"
-                    placeholder="Entry Title" />
+                    placeholder=" title" />
                 <input
                     className="price"
                     value={this.state.price}

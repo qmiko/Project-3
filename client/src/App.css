@@ -5,7 +5,6 @@
 .nav{
   font-weight:100;
   font-size:24px;
-  cursor:pointer;
   border-bottom: 6px solid #c0c4c2;
   border-bottom-width: .5px;
   color: #abb3af;
@@ -26,6 +25,7 @@
 }
 .nav-child:hover{
   color:grey;
+  cursor: pointer;
 }
 .clothing-menu{
   list-style-type: none;
@@ -41,24 +41,47 @@
   color: #656e67;
 }
 
+.clothing-item-btn{
+  color: #686e67;
+  background-color: white;
+}
+
+.clothing-item-btn:active{
+  background-color: transparent;
+  outline: none;
+}
+.clothing-item-btn:hover{
+  cursor: pointer;
+}
+
 .sell-items{
   padding-top:3%;
 }
 .title{
   height:30px;
   width: 240px;
-  margin-left: -85px
+  margin-left: -85px;
+  border-width: 1px;
+  outline-color: #b2bdb1;
+  border-color: #99a398;
+  border-style: solid;
 }
 
 .price{
   height:30px;
   width: 80px;
-  margin: 10px
+  margin: 10px;
+  border-width: 1px;
+  outline-color: #b2bdb1;
+  border-color: #99a398;
+  border-style: solid;
 }
 .description{
   height: 200px;
   width: 400px;
-  margin-left: -30px
+  margin-left: -30px;
+  outline-color: #b2bdb1;
+  border-color: #99a398;
 }
 
 textarea{
@@ -70,6 +93,11 @@ textarea{
   margin-left: 280px;
   color: #6e7571;
 }
+.new-item:hover{
+  color:#b2bdb1;
+  cursor: pointer;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

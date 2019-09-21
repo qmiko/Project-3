@@ -34,7 +34,7 @@ class Clothes extends React.Component {
 
     render() {
         return <div className="clothing-item">
-            <button onClick={this.getItems}>RUN LOAD</button>
+            <button className="clothing-item-btn" onClick={this.getItems}>shop new items</button>
             {this.state.items.length ?
                 this.state.items.map(item => (
                     <ClothingItem
