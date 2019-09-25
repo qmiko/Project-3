@@ -7,7 +7,7 @@ module.exports = {
            req.body
         ).then(
             function(item){
-                console.log(item);
+                // console.log(item);
                 res.redirect('/');
             }
         ).catch(err => res.status(422).json(err));

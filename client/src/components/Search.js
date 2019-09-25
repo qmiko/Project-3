@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "./api/api";
-import axios from "axios";
 import ClothingItem from "./ClothingItem";
 
 class Results extends Component {

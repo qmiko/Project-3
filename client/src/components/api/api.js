@@ -10,5 +10,11 @@ export default {
  saveItem: function(itemData) {
      console.log('API got sent ', itemData);
    return axios.post("/api/items", itemData);
+ },
+
+ imageUpload: function(data){
+  console.log('API got sent ', data);
+
+   return axios.post("/api/upload", data);
  }
 };

@@ -36,8 +36,9 @@ class Clothes extends React.Component {
     render() {
         return <div className="clothing-item">
             {this.state.items.length ?
-                this.state.items.map(item => (
+                this.state.items.map((item,i) => (
                     <ClothingItem
+                        key={i}
                         title={item.title}
                     />
                 )) : ""}

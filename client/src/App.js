@@ -35,6 +35,7 @@ class App extends Component {
         return <Search/>
       case 'home':
         return <Home/>
+      default: 
     }
   }
 

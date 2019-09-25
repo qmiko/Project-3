@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "./api/api.js";
+import api from "./api/api.js";
 
 
 
@@ -9,7 +10,7 @@ class Sell extends Component {
     state = {
         title: "",
         description: "",
-        price: null,
+        price: "",
         stage: 0
     };
 
@@ -21,6 +22,12 @@ class Sell extends Component {
         });
     };
 
+    handleFileInput = event => {
+        console.log(event.target.files[0]);
+        this.setState({uploaded: event.target.files[0], loaded:0})
+
+    }
+
     submitForm = event => {
         alert(this.state.description + "Submitted")
         API.saveItem({
@@ -30,6 +37,19 @@ class Sell extends Component {
         })
         this.setState({ stage: 1 });
     };
+
+    fileSubmit = event =>{
+        console.log('file upload clicked')
+        let data = new FormData();
+        data.append('file', this.state.uploaded);
+        data.append('title', this.state.title || "none",);
+        console.log(data, " sent to api");
+        api.imageUpload(data).then( (res) => {
+            console.log(res);
+            this.setState({stage:0})
+        })
+        
+    }
 
     render() {
         return (
@@ -65,7 +85,8 @@ class Sell extends Component {
                     //image upload html goes here
                     <div>
                         <div>
-                         
+                         <input type="file" name="file" onChange={this.handleFileInput}/>
+                         <button onClick={this.fileSubmit}>Upload</button>
                         </div>
                     </div>
 
