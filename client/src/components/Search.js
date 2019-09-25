@@ -1,21 +1,43 @@
 import React, { Component } from "react";
 import API from "./api/api";
 import axios from "axios";
+import ClothingItem from "./ClothingItem";
 
+class Results extends Component {
+    render() {
+        return <div className="clothing-item">
+            {this.props.data.length ?
+                this.props.data.filter(item => {
+                    let display = false;
+                    if(- 1 !== item.title.indexOf(this.props.query)) (display = true);
+                    if(- 1 !== item.description.indexOf(this.props.query)) (display = true);
+                    return display;
+                }).map(item => (
+
+                    <ClothingItem
+                        title={item.title}
+                    />
+                )) : ""}
+        </div>
+    }
+}
 
 class Search extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
             query: '',
-            results:{},
+            results: {},
             loading: false,
-            message: ''
+            message: '',
+            data: {
+                item: []
+            }
         }
         this.cancel = "";
     }
 
-    fetchSearchResults = (query) =>{
+    fetchSearchResults = (query) => {
         // if(this.cancel){
         //     this.cancel.cancel();
         // }
@@ -25,35 +47,37 @@ class Search extends Component {
         // }).then(res =>{
         //     const resultNotFound
         // })
-
-        API.getItems().then(function(data){
+        const app = this;
+        API.getItems().then(function (data) {
             console.log(data);
+            app.setState(data);
         })
 
     };
 
-    handleOnInputChange = (event) =>{
-        const query=event.target.value;
-        this.setState({query, loading:true, message:""});
+    handleOnInputChange = (event) => {
+        const query = event.target.value;
+        this.setState({ query, loading: true, message: "" });
     };
 
-    render(){
-        const {query} = this.state;
+    render() {
+        const { query } = this.state;
         console.log(this.state)
-        return(
+        return (
             <div className="search-component">
-               <h2 className="heading">Live Search</h2>
-               <label className="search-label" htmlFor="search-input">
-                   <input
-                   type="text"
-                   name="query"
-                   value={query}
-                   id="search-input"
-                   placeholder="search"
-                   onChange={this.handleOnInputChange}
-                   />
-                   <i onClick={this.fetchSearchResults} className="fa fa-search" aria-hidden="true"/>
-               </label>
+                <label className="search-label" htmlFor="search-input">
+                    <input
+                        className="search-box"
+                        type="text"
+                        name="query"
+                        value={query}
+                        id="search-input"
+                        placeholder=" search"
+                        onChange={this.handleOnInputChange}
+                    />
+                    <i onClick={this.fetchSearchResults} className="fa fa-search" aria-hidden="true" id="search-btn" />
+                </label>
+                <Results query={this.state.query} data={this.state.data.item} />
             </div>
         )
     }
@@ -92,5 +116,5 @@ class Search extends Component {
 //     )
 //   }
 //  }
- 
+
 export default Search;

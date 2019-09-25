@@ -7,7 +7,7 @@
   font-size:24px;
   border-bottom: 6px solid #c0c4c2;
   border-bottom-width: .5px;
-  color: #abb3af;
+  color: #6f7871;
   padding-bottom: 1%;
   padding-top:3%;
   position:relative;
@@ -33,7 +33,7 @@
   text-align: left;
   font-weight: 100;
   font-size: 40px;
-  color: #656e67 ;
+  color: #abb3af ;
 }
 .clothing-item{
   font-weight: 100;
@@ -42,7 +42,7 @@
 }
 
 .clothing-item-btn{
-  color: #686e67;
+  color: #656e67;
   background-color: white;
 }
 
@@ -52,6 +52,7 @@
 }
 .clothing-item-btn:hover{
   cursor: pointer;
+  color: grey;
 }
 
 .sell-items{
@@ -62,9 +63,10 @@
   width: 240px;
   margin-left: -85px;
   border-width: 1px;
-  outline-color: #b2bdb1;
+  outline-style: none;
   border-color: #99a398;
   border-style: solid;
+  color: #656e67;
 }
 
 .price{
@@ -72,16 +74,18 @@
   width: 80px;
   margin: 10px;
   border-width: 1px;
-  outline-color: #b2bdb1;
+  outline-style: none;
   border-color: #99a398;
   border-style: solid;
+  color: #656e67;
 }
 .description{
   height: 200px;
   width: 400px;
   margin-left: -30px;
-  outline-color: #b2bdb1;
+  outline-style: none;
   border-color: #99a398;
+  color: #656e67;
 }
 
 textarea{
@@ -91,11 +95,37 @@ textarea{
 .new-item{
   font-weight: 100;
   margin-left: 280px;
-  color: #6e7571;
+  color: #abb3af;
 }
 .new-item:hover{
-  color:#b2bdb1;
+  color: grey;
   cursor: pointer;
+}
+
+.search-box{
+  height: 30px;
+  width: 350px;
+  border-radius: 25px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #99a398;
+  margin-top: 20px;
+  color: #656e67;
+  outline-style: none;
+}
+
+.search-box:hover{
+  background-color: white
+}
+
+#search-btn{
+  color: #abb3af;
+  margin-left: 10px;
+}
+
+#search-btn:hover{
+  cursor: pointer;
+  color: grey
 }
 
 .App-logo {

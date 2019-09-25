@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import API from "./api/api"
+import API from "./api/api";
+import ClothingItem from "./ClothingItem";
 function Menu() {
     return <div>
         <ul className="clothing-menu">
@@ -47,9 +48,7 @@ class Clothes extends React.Component {
 
 }
 
-function ClothingItem(props) {
-    return <div className="clothing-item">{props.title}</div>
-}
+
 class Shop extends Component {
 
     state = { menuOpen: true }
