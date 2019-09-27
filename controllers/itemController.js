@@ -11,5 +11,12 @@ module.exports = {
                 res.redirect('/');
             }
         ).catch(err => res.status(422).json(err));
-    }
+    },
+    remove: function(req, res) {
+        db.Items
+          .findById({ _id: req.params.id })
+          .then(dbModel => dbModel.remove())
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(422).json(err));
+      }
 };

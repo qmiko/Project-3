@@ -1,4 +1,5 @@
 const express = require("express");
+
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -23,12 +24,12 @@ var storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
 
-    cb(null, title)
+    cb(null, req.params.name)
   }
 })
 
 var upload = multer({storage:storage}).single('file');
-app.post('/api/upload', function(req, res){
+app.post('/api/upload/:name', function(req, res){
   console.log(req.file, " file uploaded");
 
   upload(req, res, function(err){

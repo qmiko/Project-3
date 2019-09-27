@@ -17,7 +17,15 @@
   margin-top: 3%;
   top:-20px;
   left:30px;
-  font-size: 50px
+  font-size: 50px;
+}
+.header:hover{
+  cursor: pointer;
+}
+.home-header{
+  font-weight: lighter;
+  color: #abb3af;
+  font-size: 70px;
 }
 .nav-child{
   display: inline-block;
@@ -27,6 +35,7 @@
   color:grey;
   cursor: pointer;
 }
+
 .clothing-menu{
   list-style-type: none;
   float: left;
@@ -58,6 +67,7 @@
 .sell-items{
   padding-top:3%;
 }
+
 .title{
   height:30px;
   width: 240px;

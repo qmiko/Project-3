@@ -29,7 +29,6 @@ class Sell extends Component {
     }
 
     submitForm = event => {
-        alert(this.state.description + "Submitted")
         API.saveItem({
             title: this.state.title || "none",
             description: this.state.description || "none",
@@ -42,9 +41,8 @@ class Sell extends Component {
         console.log('file upload clicked')
         let data = new FormData();
         data.append('file', this.state.uploaded);
-        data.append('title', this.state.title || "none",);
-        console.log(data, " sent to api");
-        api.imageUpload(data).then( (res) => {
+        console.log(this.state.uploaded, " sent to api");
+        api.imageUpload(data, this.state.title + "." + this.state.uploaded.name.split('.').pop()).then( (res) => {
             console.log(res);
             this.setState({stage:0})
         })

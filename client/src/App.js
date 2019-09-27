@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Shop from "./components/Shop.js";
 import Sell from "./components/Sell.js";
-import Search from "./components/Search.js"
-import Home from "./components/Home.js"
+import Search from "./components/Search.js";
+import Home from "./components/Home.js";
+import Login from "./components/Login.js";
 import "./App.css";
 
 
@@ -14,6 +15,7 @@ class Nav extends Component{
         <div className="nav-child" onClick={this.props.showShop}>shop</div>
         <div className="nav-child" onClick={this.props.showSell}>sell</div>
         <div className="nav-child" onClick={this.props.showSearch}>search</div>
+        <div className="nav-child-login" onClick={this.props.showLogin}>login</div>
       </div>
     )
   }
@@ -22,7 +24,7 @@ class Nav extends Component{
 class App extends Component {
 
   state = {
-    currentPage:"shop"
+    currentPage:"home"
   }
 
   getPageContents = () => {
@@ -35,7 +37,10 @@ class App extends Component {
         return <Search/>
       case 'home':
         return <Home/>
+      case 'login':
+        return <Login/>
       default: 
+
     }
   }
 
@@ -51,12 +56,16 @@ class App extends Component {
   showHomePage = () =>{
     this.setState({currentPage: 'home'})
   }
+  showLoginPage = () =>{
+    this.setState({currentPage: 'login'})
+  }
 
 
   render() {
     return (
       <div className="App">
-       <Nav showSell={this.showSellPage} showShop={this.showShopPage} showSearch={this.showSearchPage} showHome={this.showHomePage}/>
+       <Nav showSell={this.showSellPage} showShop={this.showShopPage} showSearch={this.showSearchPage} showHome={this.showHomePage} 
+       showLogin={this.showLoginPage}/>
        {this.getPageContents()}
       </div>
     );

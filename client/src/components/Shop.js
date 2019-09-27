@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import API from "./api/api";
 import ClothingItem from "./ClothingItem";
+import Delete from "./Delete/Delete"
+
+
 function Menu() {
     return <div>
         <ul className="clothing-menu">
@@ -21,32 +24,33 @@ class Clothes extends React.Component {
     state = {
         items:[]
     }
+
     componentDidMount(){
         this.getItems();
     }
+
     getItems = () => {
         API.getItems().then(res =>
             this.setState({
                 items: res.data.item
             })
         )
-
     }
 
     render() {
-        return <div className="clothing-item">
+        return (
+        <div className="clothing-item">
+            {this.state.items.length && <ClothingItem
+             key={0}
+             title={this.state.items[0].title}
+         />}
             {this.state.items.length ?
                 this.state.items.map((item,i) => (
-                    <ClothingItem
-                        key={i}
-                        title={item.title}
-                    />
+                   ""
                 )) : ""}
-
-
-        </div>
+            <Delete onClick={() => this.deleteItems()} />
+        </div>)
     }
-
 }
 
 

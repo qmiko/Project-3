@@ -1,11 +1,13 @@
 const path = require("path");
 const router = require("express").Router();
 const itemRoutes = require("./item");
+const imageRoutes = require("./images");
 const multer = require('multer');
 const cors = require('cors');
 
 router.use("/items", itemRoutes);
 
+router.use("/images", imageRoutes);
 
 // For anything else, render the html page
 router.use(function(req, res) {
