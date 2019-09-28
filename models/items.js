@@ -1,19 +1,12 @@
-module.exports = function (sequelize, DataTypes) {
-    var Items = sequelize.define("Items", {
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-        description: {
-            type: DataTypes.TEXT,
-            allowNull: false
-        },
+const itemSchema = new Schema({
+  title: { type: String, required: true },
+  description: { type: String, required:true },
+  price: { type: Number, required: true },
+});
 
-        price: {
-            type: DataTypes.DECIMAL,
-            allowNull: false
-        }
-    });
-    return Items;
-};
+const Item = mongoose.model("Item", itemSchema);
+
+module.exports = Item;

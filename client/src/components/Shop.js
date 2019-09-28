@@ -31,9 +31,11 @@ class Clothes extends React.Component {
 
     getItems = () => {
         API.getItems().then(res =>
+           { 
+            console.log(res.data);   
             this.setState({
-                items: res.data.item
-            })
+                items: res.data
+            })}
         )
     }
     
