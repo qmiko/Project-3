@@ -1,2 +1,3 @@
-nnode_modules
+uploads
 node_modules
+./client/node_modules
