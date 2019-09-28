@@ -80,11 +80,12 @@ class Sell extends Component {
                         <div className="new-item" onClick={this.submitForm}> add new item</div>
                     </div>
                     :
-                    //image upload html goes here
+
+                    //image upload html
                     <div>
                         <div>
-                         <input type="file" name="file" onChange={this.handleFileInput}/>
-                         <button onClick={this.fileSubmit}>Upload</button>
+                         <input className="img-input" type="file" name="file" onChange={this.handleFileInput}/>
+                         <button className="img-btn" onClick={this.fileSubmit}>Upload</button>
                         </div>
                     </div>
 

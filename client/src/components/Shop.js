@@ -66,12 +66,17 @@ class Clothes extends React.Component {
 
 class Shop extends Component {
 
-    state = { menuOpen: true }
+    state = { menuOpen: false }
 
+    toggleMenu = () => {
+        this.setState({
+            menuOpen: ! this.state.menuOpen
+        })
+    }
     render() {
         return (
             <div>
-                {this.state.menuOpen ? <Menu /> : ""}
+                {this.state.menuOpen ? <Menu toggleMenu={this.toggleMenu}/> : ""}
                 <Clothes />
             </div>
 

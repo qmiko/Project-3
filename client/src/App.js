@@ -12,10 +12,10 @@ class Nav extends Component{
     return (
       <div className="nav">
         <div className="header" onClick={this.props.showHome}>eleven</div>
-        <div className="nav-child" onClick={this.props.showShop}>shop</div>
-        <div className="nav-child" onClick={this.props.showSell}>sell</div>
-        <div className="nav-child" onClick={this.props.showSearch}>search</div>
-        <div className="nav-child-login" onClick={this.props.showLogin}>login</div>
+        <div className="nav-child" style={this.props.currentPage === "shop" ? {"fontWeight":"bold"} : {}} onClick={this.props.showShop}>shop</div>
+        <div className="nav-child" style={this.props.currentPage === "sell" ? {"fontWeight":"bold"} : {}} onClick={this.props.showSell}>sell</div>
+        <div className="nav-child" style={this.props.currentPage === "search" ? {"fontWeight":"bold"} : {}} onClick={this.props.showSearch}>search</div>
+        <div className="nav-child-login" style={this.props.currentPage === "login" ? {"fontWeight":"bold"} : {}} onClick={this.props.showLogin}>login</div>
       </div>
     )
   }
@@ -64,7 +64,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <Nav showSell={this.showSellPage} showShop={this.showShopPage} showSearch={this.showSearchPage} showHome={this.showHomePage} 
+       <Nav currentPage={this.state.currentPage} showSell={this.showSellPage} showShop={this.showShopPage} showSearch={this.showSearchPage} showHome={this.showHomePage} 
        showLogin={this.showLoginPage}/>
        {this.getPageContents()}
       </div>
