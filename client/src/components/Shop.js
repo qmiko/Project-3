@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "./api/api";
 import ClothingItem from "./ClothingItem";
-import Delete from "./Delete/Delete"
+import Delete from "./Delete"
 
 
 function Menu() {
@@ -36,20 +36,30 @@ class Clothes extends React.Component {
             })
         )
     }
+    
+    getClothesJSX(){
+        if(this.state.items.length){
+            return this.state.items.map((item,i) => {
+                return (
+                <div className="clothing-item">
+                    <ClothingItem
+                        key={i}
+                        title={item.title}
+                    />
+                    <Delete onClick={() => this.deleteItems()} />
+                </div>)
+            });
+        }
+        return false;
+    }
 
     render() {
         return (
-        <div className="clothing-item">
-            {this.state.items.length && <ClothingItem
-             key={0}
-             title={this.state.items[0].title}
-         />}
-            {this.state.items.length ?
-                this.state.items.map((item,i) => (
-                   ""
-                )) : ""}
-            <Delete onClick={() => this.deleteItems()} />
-        </div>)
+            <div className="clothes">
+                {this.getClothesJSX()}
+            </div>
+
+        )
     }
 }
 
