@@ -44,6 +44,10 @@
   font-size: 40px;
   color: #abb3af ;
 }
+img{
+  max-width: 200px;
+  height:auto;
+}
 .clothing-item{
   font-weight: 100;
   font-size: 30px;
