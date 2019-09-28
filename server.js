@@ -1,5 +1,7 @@
 const express = require("express");
-
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const passport = require('./passport');
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -8,6 +10,15 @@ const db = require('./models');
 const fs = require('fs');
 const cors = require('cors');
 const multer = require('multer');
+
+// MIDDLEWARE
+app.use(morgan('dev'))
+app.use(
+	bodyParser.urlencoded({
+		extended: false
+	})
+)
+app.use(bodyParser.json())
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
